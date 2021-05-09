@@ -1,0 +1,94 @@
+{
+  "pizzas": [
+    {
+      "id": 0,
+      "imageUrl": "https://stories.starbucks.com/wp-content/uploads/2019/01/Where_in_the_World_2017_-_Piccino-1.jpg",
+      "name": "Латте",
+      "types": [0, 1],
+      "sizes": [250, 350, 450],
+      "price": 3.5,
+      "category": 0,
+      "rating": 4
+    },
+    {
+      "id": 1,
+      "imageUrl": "https://store.donanimhaber.com/00/ee/4e/00ee4ec41db3b762beebac79cecf87ea.jpg",
+      "name": "Мокка",
+      "types": [0],
+      "sizes": [250, 350, 450],
+      "price": 4.5,
+      "category": 0,
+      "rating": 6
+    },
+    {
+      "id": 2,
+      "imageUrl": "https://coffeeofday.com/wp-content/uploads/2015/02/flat-white.jpg",
+      "name": "Капучино",
+      "types": [0],
+      "sizes": [250, 350, 450],
+      "price": 4.6,
+      "category": 0,
+      "rating": 10
+    },
+    {
+      "id": 3,
+      "imageUrl": "https://pbs.twimg.com/profile_images/1636673535/caramel_macchiato.jpg",
+      "name": "Карамель маккиато",
+      "types": [1],
+      "sizes": [250, 350, 450],
+      "price": 5,
+      "category": 0,
+      "rating": 2
+    },
+    {
+      "id": 4,
+      "imageUrl": "http://1.bp.blogspot.com/_k7qGkTfFYuM/S7OIgjap7LI/AAAAAAAAAIQ/LNouDeyyijk/s1600/1a887ef9a766404bbebadf34b171c557.jpg",
+      "name": "Флэт Уайт",
+      "types": [0, 1],
+      "sizes": [250, 350, 450],
+      "price": 3.5,
+      "category": 0,
+      "rating": 8
+    },
+    {
+      "id": 5,
+      "imageUrl": "https://images.spoonacular.com/file/wximages/316717.jpg",
+      "name": "Раф",
+      "types": [0],
+      "sizes": [250, 350, 450],
+      "price": 4.8,
+      "category": 0,
+      "rating": 2
+    },
+    {
+      "id": 6,
+      "imageUrl": "https://en.starbucks.com.cy/media/chai-teavana_tcm55-25092_w1024_n.jpg",
+      "name": "Черный чай",
+      "types": [0, 1],
+      "sizes": [250, 350, 450],
+      "price": 2,
+      "category": 1,
+      "rating": 9
+    },
+    {
+      "id": 7,
+      "imageUrl": "https://globalassets.starbucks.com/assets/7e75a55630314d478f0b63865d271c39.jpg",
+      "name": "Зеленый чай",
+      "types": [0, 1],
+      "sizes": [250, 350, 450],
+      "price": 2,
+      "category": 1,
+      "rating": 10
+    },
+    {
+      "id": 8,
+      "imageUrl": "https://austinconcorde.files.wordpress.com/2014/02/0c03cd79a29847709f255e783db671eb.jpg",
+      "name": "Красный чай",
+      "types": [0, 1],
+      "sizes": [250, 350, 450],
+      "price": 2,
+      "category": 1,
+      "rating": 10
+    }
+  ]
+}
