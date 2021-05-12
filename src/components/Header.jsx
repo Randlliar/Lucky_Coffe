@@ -22,7 +22,7 @@ function Header() {
             </div>
           </div>
           <div>
-            <p>*- наше кофе имеет фиксированную цену.</p>
+            <p>*- наши напитки имеют фиксированную цену.</p>
           </div>
         </Link>
         <div className="header__cart">

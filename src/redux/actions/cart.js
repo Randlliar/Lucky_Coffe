@@ -21,3 +21,7 @@ export const minusCartItem = (id) => ({
   type: 'MINUS_CART_ITEM',
   payload: id,
 });
+
+export const confirmation = (id) => ({
+  type: 'MODAL_WINDOW',
+});

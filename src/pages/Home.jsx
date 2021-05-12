@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
-import { addPizzaToCart } from '../redux/actions/cart';
+// import { addPizzaToCart } from '../redux/actions/cart';
 
 const categoryNames = ['Кофе', 'Чай'];
 const sortItems = [

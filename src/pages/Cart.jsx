@@ -1,8 +1,8 @@
 import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CartItem, Button } from '../components';
-
 import cartEmptyImage from '../assets/img/empty-cart.png';
+// import { Modal, Form, useState } from 'react-boostap';
 
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../redux/actions/cart';
 import { Link } from 'react-router-dom';
@@ -16,13 +16,13 @@ function Cart() {
   });
 
   const onClearCart = () => {
-    if (window.confirm('To4no udaliaem, na4alnik?')) {
+    if (window.confirm('Вы точно хотите очистить корзину?')) {
       dispatch(clearCart());
     }
   };
 
   const onRemoveItem = (id) => {
-    if (window.confirm('To4no udaliaem, na4alnik?')) {
+    if (window.confirm('Вы точно хоите удалить данный напиток?')) {
       dispatch(removeCartItem(id));
     }
   };
@@ -35,9 +35,13 @@ function Cart() {
     dispatch(minusCartItem(id));
   };
 
-  const onClickOrder = (id) => {
-    console.log('VASH ZAKAZ', items);
-  };
+  // const [show, setShow] = useState(false);
+
+  // const handleClose = () => setShow(false);
+  // const handleShow = () => setShow(true);
+  // const onClickOrder = () => {
+  // return { ModalWindow };
+  // };
 
   return (
     <div className="container container--cart">
@@ -159,9 +163,30 @@ function Cart() {
                   <span>Вернуться назад</span>
                 </Link>
               </a>
-              <Button onClick={onClickOrder} className="pay-btn">
-                <span>Оплатить сейчас</span>
-              </Button>
+              <div>
+                <Button className="pay-btn">
+                  <span>Оплатить сейчас</span>
+                </Button>
+
+                {/* <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
+                  <Modal.Header closeButton>
+                    <Modal.Title>Подтверждение заказа</Modal.Title>
+                  </Modal.Header>
+                  <Modal.Body>
+                    <Form.Group>
+                      <Form.Control as="select" size="lg">
+                        <option>Введите номер телефона</option>
+                      </Form.Control>
+                    </Form.Group>
+                  </Modal.Body>
+                  <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                      Закрыть
+                    </Button>
+                    <Button variant="primary">Подтвердить</Button>
+                  </Modal.Footer>
+                </Modal> */}
+              </div>
             </div>
           </div>
         </div>
