@@ -2,14 +2,22 @@ import React from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { CartItem, Button } from '../components';
 import cartEmptyImage from '../assets/img/empty-cart.png';
-// import { Modal, Form, useState } from 'react-boostap';
+import Dialog from '@material-ui/core/Dialog';
+import DialogActions from '@material-ui/core/DialogActions';
+import DialogContent from '@material-ui/core/DialogContent';
+import DialogTitle from '@material-ui/core/DialogTitle';
+import ContactForm from './ContactForm';
+import { Header } from '../components';
 
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../redux/actions/cart';
 import { Link } from 'react-router-dom';
+import { setOrderList } from '../redux/actions/orderList';
 
 function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }) => cart);
+
+  const [open, setOpen] = React.useState(false);
 
   const addedPizzas = Object.keys(items).map((key) => {
     return items[key].items[0];
@@ -35,21 +43,46 @@ function Cart() {
     dispatch(minusCartItem(id));
   };
 
-  // const [show, setShow] = useState(false);
+  const setOrdersList = (name) => {
+    dispatch(setOrderList({ name, items }));
+  };
 
-  // const handleClose = () => setShow(false);
-  // const handleShow = () => setShow(true);
-  // const onClickOrder = () => {
-  // return { ModalWindow };
-  // };
+  const onClickOrder = () => {
+    setOpen(true);
+    console.log('ВАШ ЗАКАЗ', items);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
 
   return (
     <div className="container container--cart">
+      <Dialog
+        open={open}
+        onClose={handleClose}
+        aria-labelledby="alert-dialog-title"
+        aria-describedby="alert-dialog-description">
+        {/* <DialogTitle id="alert-dialog-title">{"Use Google's location service?"}</DialogTitle> */}
+        <DialogContent>
+          <ContactForm onClose={handleClose} setOrdersList={setOrdersList} />
+        </DialogContent>
+        <DialogActions>
+          {/* <Button onClick={handleClose} color="primary">
+            Disagree
+          </Button>
+          <Button onClick={handleClose} color="primary" autoFocus>
+            Agree
+          </Button> */}
+        </DialogActions>
+      </Dialog>
       {totalCount ? (
         <div className="cart">
+          <Header />
+
           <div className="cart__top">
             <h2 className="content__title">
-              <svg
+              {/* <svg
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
@@ -76,7 +109,7 @@ function Cart() {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
-              </svg>
+              </svg> */}
               Корзина
             </h2>
             <div className="cart__clear">
@@ -164,28 +197,9 @@ function Cart() {
                 </Link>
               </a>
               <div>
-                <Button className="pay-btn">
-                  <span>Оплатить сейчас</span>
+                <Button onClick={onClickOrder} className="pay-btn">
+                  <span>Оформить заказ</span>
                 </Button>
-
-                {/* <Modal show={show} onHide={handleClose} backdrop="static" keyboard={false}>
-                  <Modal.Header closeButton>
-                    <Modal.Title>Подтверждение заказа</Modal.Title>
-                  </Modal.Header>
-                  <Modal.Body>
-                    <Form.Group>
-                      <Form.Control as="select" size="lg">
-                        <option>Введите номер телефона</option>
-                      </Form.Control>
-                    </Form.Group>
-                  </Modal.Body>
-                  <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                      Закрыть
-                    </Button>
-                    <Button variant="primary">Подтвердить</Button>
-                  </Modal.Footer>
-                </Modal> */}
               </div>
             </div>
           </div>

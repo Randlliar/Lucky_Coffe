@@ -5,6 +5,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { setCategory, setSortBy } from '../redux/actions/filters';
 import { fetchPizzas } from '../redux/actions/pizzas';
 // import { addPizzaToCart } from '../redux/actions/cart';
+import { Header } from '../components';
 
 const categoryNames = ['Кофе', 'Чай'];
 const sortItems = [
@@ -41,6 +42,8 @@ function Home() {
 
   return (
     <div className="container">
+      <Header />
+
       <div className="content__top">
         <Categories
           activeCategory={category}

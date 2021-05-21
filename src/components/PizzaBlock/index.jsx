@@ -6,7 +6,7 @@ import { propTypes } from 'react-bootstrap/esm/Image';
 
 function PizzaBlock({ id, name, imageUrl, price, types, sizes, onClickAddPizza, addedCount }) {
   const availbaleType = ['холодный', 'горячий'];
-  const availbaleSize = [250, 350, 450];
+  const availbaleSize = [300];
 
   const [activeType, setActiveType] = React.useState(types[0]);
   const [activeSize, setActiveSize] = React.useState(0);

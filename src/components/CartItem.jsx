@@ -19,8 +19,8 @@ function CartItem({ id, name, type, size, totalPrice, totalCount, onRemove, onMi
       <div className="cart__item-img">
         <img
           className="pizza-block__image"
-          src="https://lh3.googleusercontent.com/FWLsNIYcvAOKaUq6I5aM6rq_Y_I5p3Bh81sRnBZwj1zSq7FIJPKr5Mu4rjvZiyaq_xluFg=s113"
-          alt="Pizza"
+          src="https://lh3.googleusercontent.com/MW2BsWYonIFYllix6kx8xsDnZdYm0GurwV9HWptLZ7eHAPnI81mV3F-Ne29lat5jdfn3=s113"
+          alt="Coffe"
         />
       </div>
       <div className="cart__item-info">
