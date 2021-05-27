@@ -74,7 +74,7 @@ export default function Login() {
             id="password"
             autoComplete="current-password"
           />
-          <Link to="/adminka">
+          <Link to="/">
             <Button className="button--cart">Login</Button>
           </Link>
         </form>

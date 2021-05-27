@@ -9,9 +9,9 @@ function Admin() {
     <div className="wrapper">
       <div className="container">
         <Navbar />
-        <div className="content__top"></div>
+        <div className="content__top">Список заказов</div>
 
-        <div className="content__items"></div>
+        <div className="content__items">sad</div>
       </div>
     </div>
   );
