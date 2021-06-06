@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Avatar from '@material-ui/core/Avatar';
 import Button from '../Button';
 import TextField from '@material-ui/core/TextField';
@@ -7,6 +7,8 @@ import Typography from '@material-ui/core/Typography';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import { Link, NavLink } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+import { setAuthFlag } from '../../redux/actions/admin';
 
 function Copyright() {
   return (
@@ -41,8 +43,20 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-export default function Login() {
+export default function Login(props) {
   const classes = useStyles();
+  const dispatch = useDispatch();
+  const [login, setLogin] = useState('');
+  const [password, setPassword] = useState('');
+  const adminInfo = useSelector((state) => state.admin);
+
+  const loginClick = (e) => {
+    e.preventDefault();
+    if (login === adminInfo.login && password === adminInfo.password) {
+      dispatch(setAuthFlag(true));
+      props.onClose();
+    }
+  };
 
   return (
     <Container component="main" maxWidth="xs">
@@ -61,6 +75,9 @@ export default function Login() {
             label="Email Address"
             name="email"
             autoComplete="email"
+            onChange={(e) => {
+              setLogin(e.target.value);
+            }}
             autoFocus
           />
           <TextField
@@ -72,10 +89,15 @@ export default function Login() {
             label="Password"
             type="password"
             id="password"
+            onChange={(e) => {
+              setPassword(e.target.value);
+            }}
             autoComplete="current-password"
           />
           <Link to="/">
-            <Button className="button--cart">Login</Button>
+            <Button className="button--cart" onClick={loginClick}>
+              Login
+            </Button>
           </Link>
         </form>
       </div>

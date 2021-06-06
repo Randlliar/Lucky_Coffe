@@ -2,16 +2,18 @@ import Button from './Button';
 import React from 'react';
 import { Link, NavLink } from 'react-router-dom';
 import { Grid } from '@material-ui/core';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import Dialog from '@material-ui/core/Dialog';
 import DialogActions from '@material-ui/core/DialogActions';
 import DialogContent from '@material-ui/core/DialogContent';
 import DialogTitle from '@material-ui/core/DialogTitle';
 import Login from './LoginS/Login';
 import { makeStyles } from '@material-ui/core/styles';
+import { setAuthFlag } from '../redux/actions/admin';
 
 function Navbar() {
-  // const { items } = useSelector(({ cart }) => cart);
+  const isSignUp = useSelector((state) => state.admin.isSignUp);
+  const dispatch = useDispatch();
 
   const useStyles = makeStyles((theme) => ({
     paper: {
@@ -38,6 +40,10 @@ function Navbar() {
 
   const onClickAdmin = () => {
     setOpen(true);
+  };
+
+  const signOutClick = () => {
+    dispatch(setAuthFlag(false));
   };
 
   const handleClose = () => {
@@ -73,11 +79,15 @@ function Navbar() {
 
         <div className="header__cart">
           <Grid>
-            {/* <Link to="/"> */}
-            <Button onClick={onClickAdmin} className="button--cart">
-              Login
-            </Button>
-            {/* </Link> */}
+            {!isSignUp ? (
+              <Button onClick={onClickAdmin} className="button--login">
+                Login
+              </Button>
+            ) : (
+              <Button onClick={signOutClick} className="button--logout">
+                Logout
+              </Button>
+            )}
           </Grid>
         </div>
       </div>

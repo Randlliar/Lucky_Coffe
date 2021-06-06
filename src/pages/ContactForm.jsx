@@ -49,9 +49,11 @@ const useStyles = makeStyles((theme) => ({
 
 export default function ContactUs(props) {
   const classes = useStyles();
+  const [name, setName] = React.useState('');
+
   function sendEmail(e) {
     e.preventDefault();
-    props.setOrdersList('Den');
+    props.setOrdersList(name);
     props.onClose();
   }
 
@@ -67,6 +69,10 @@ export default function ContactUs(props) {
           <TextField
             variant="outlined"
             margin="normal"
+            value={name}
+            onChange={(e) => {
+              setName(e.target.value);
+            }}
             required
             fullWidth
             name="Name"
